@@ -11,7 +11,7 @@ module.exports = {
     darkSelector: '.dark-mode',
     extend: {
       fontFamily: {
-        sans: ['Karla', ...defaultTheme.fontFamily.sans],
+        sans: ['Hind Siliguri', ...defaultTheme.fontFamily.sans],
         mono: [...defaultTheme.fontFamily.mono]
       },
       colors: {
