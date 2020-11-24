@@ -9,8 +9,7 @@ import { COLOR_MODE_FALLBACK } from './utils/globals.js'
 const dynamicContentPath = 'assets/content' // ? No prepending/appending backslashes here
 const dynamicRoutes = getDynamicPaths(
   {
-    blog: 'blog/*.json',
-    projects: 'projects/*.json'
+    adventures: 'adventures/**/*.json'
   },
   dynamicContentPath
 )
@@ -19,10 +18,7 @@ export default {
   mode: 'universal',
   // ? The env Property: https://nuxtjs.org/api/configuration-env/
   env: {
-    url:
-      process.env.NODE_ENV === 'production'
-        ? process.env.URL || 'http://createADotEnvFileAndSetURL'
-        : 'http://localhost:3000',
+    url: process.env.NODE_ENV === 'production' ? process.env.URL : 'http://localhost:3000',
     lang: SITE_INFO.sitelang || 'en-US'
   },
   /*
