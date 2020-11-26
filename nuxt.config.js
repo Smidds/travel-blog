@@ -6,16 +6,15 @@ import postcssPresetEnv from 'postcss-preset-env'
 import * as SITE_INFO from './assets/content/site/info.json'
 import { COLOR_MODE_FALLBACK } from './utils/globals.js'
 
-const dynamicContentPath = 'assets/content' // ? No prepending/appending backslashes here
-const dynamicRoutes = getDynamicPaths(
-  {
-    adventures: 'adventures/**/*.json'
-  },
-  dynamicContentPath
-)
+// const dynamicContentPath = 'assets/content' // ? No prepending/appending backslashes here
+// const dynamicRoutes = getDynamicPaths(
+//   {
+//     adventures: 'adventures/**/*.json'
+//   },
+//   dynamicContentPath
+// )
 
 export default {
-  mode: 'universal',
   // ? The env Property: https://nuxtjs.org/api/configuration-env/
   env: {
     url: process.env.NODE_ENV === 'production' ? process.env.URL : 'http://localhost:3000',
@@ -43,7 +42,7 @@ export default {
     ]
   },
   generate: {
-    routes: dynamicRoutes,
+    // routes: dynamicRoutes,
     fallback: true,
     subFolders: false
   },
