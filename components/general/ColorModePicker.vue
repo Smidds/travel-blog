@@ -1,14 +1,14 @@
 <template>
   <div class="fixed bottom-0 left-0 m-3">
-    <component :is="`icon-${color}`" @click="changeColorMode" title="Toggle background color" />
+    <component :is="`icon-${color}`" class="icon" @click="changeColorMode" title="Toggle background color" />
   </div>
 </template>
 
 <script>
 import { COLOR_MODE_FALLBACK } from '~/utils/globals.js'
 import IconSystem from '~/components/icons/system.svg?inline'
-import IconLight from '~/components/icons/light.svg?inline'
-import IconDark from '~/components/icons/dark.svg?inline'
+import IconLight from '~/components/icons/luke-skywalker.svg?inline'
+import IconDark from '~/components/icons/darth-vader.svg?inline'
 
 export default {
   name: 'ColorModePicker',
