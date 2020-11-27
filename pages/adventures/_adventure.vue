@@ -19,10 +19,10 @@
 export default {
   async asyncData({ params, payload }) {
     if (payload) return { adventure: payload }
-    // else
-    //   return {
-    //     adventure: await require(`~/assets/content/adventures/${params.adventure}.json`)
-    //   }
+    else
+      return {
+        adventure: await require(`~/assets/content/adventures/${params.adventure}.json`)
+      }
   }
 }
 </script>

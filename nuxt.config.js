@@ -1,3 +1,4 @@
+import fs from 'fs'
 import glob from 'glob'
 import path from 'path'
 import postcssImport from 'postcss-import'
@@ -6,15 +7,8 @@ import postcssPresetEnv from 'postcss-preset-env'
 import * as SITE_INFO from './assets/content/site/info.json'
 import { COLOR_MODE_FALLBACK } from './utils/globals.js'
 
-// const dynamicContentPath = 'assets/content' // ? No prepending/appending backslashes here
-// const dynamicRoutes = getDynamicPaths(
-//   {
-//     adventures: 'adventures/**/*.json'
-//   },
-//   dynamicContentPath
-// )
-
 export default {
+  target: 'static',
   // ? The env Property: https://nuxtjs.org/api/configuration-env/
   env: {
     url: process.env.NODE_ENV === 'production' ? process.env.URL : 'http://localhost:3000',
@@ -42,7 +36,9 @@ export default {
     ]
   },
   generate: {
-    // routes: dynamicRoutes,
+    routes() {
+      return getDynamicPaths('assets/content')
+    },
     fallback: true,
     subFolders: false
   },
@@ -129,30 +125,28 @@ export default {
   }
 }
 
-/**
- * Create an array of URLs from a list of files
- * @param {*} urlFilepathTable - example below
- * {
- *   blog: 'blog/*.json',
- *   projects: 'projects/*.json'
- * }
- *
- * @return {Array} - Will return those files into urls for SSR generated .html's like
- * [
- *   /blog/2019-08-27-incidunt-laborum-e ,
- *   /projects/story-test-story-1
- * ]
- */
-function getDynamicPaths(urlFilepathTable, cwdPath) {
-  console.log('Going to generate dynamicRoutes for these collection types: ', urlFilepathTable)
-  const dynamicPaths = [].concat(
-    ...Object.keys(urlFilepathTable).map(url => {
-      const filepathGlob = urlFilepathTable[url]
-      return glob.sync(filepathGlob, { cwd: cwdPath }).map(filepath => {
-        return `/${url}/${path.basename(filepath, '.json')}`
-      })
+function getDynamicPaths(cwdPath) {
+  console.log('Getting dynamic paths')
+
+  console.log('Getting dynamic paths for "adventures/*.json"')
+  const adventuresPaths = glob
+    .sync('adventures/*.json', { cwd: cwdPath })
+    .map(filepath => `/adventures/${path.basename(filepath, '.json')}`)
+
+  console.log('Getting dynamic paths for "journal_entries/*.json"')
+  const journalEntriesPaths = glob
+    .sync('journal_entries/*.json', { cwd: cwdPath })
+    .map(filepath => {
+      return {
+        slug: path.basename(filepath, '.json'),
+        ...JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
+      }
     })
-  )
-  console.log('Found these dynamicPaths that will be SSR generated:', dynamicPaths)
-  return dynamicPaths
+    .map(journalEntry => {
+      return `/adventures/${journalEntry.adventure}/${journalEntry.slug}`
+    })
+
+  const routes = [...adventuresPaths, ...journalEntriesPaths]
+  console.log('Dynamic routes generated: ', routes)
+  return routes
 }
