@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex fixed top-0 inset-x-0 p-3 justify-center shadow-lg h-16 items-center">
+  <nav class="flex sticky w-full top-0 inset-x-0 p-3 justify-center shadow-lg h-16 items-center">
     <div>
       <nuxt-link class="text-2xl text-black left-to-right-underline" to="/">✈ Isaac's Travel Blog</nuxt-link>
     </div>

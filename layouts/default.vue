@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div class="w-full">
     <Header />
     <ColorModePicker />
-    <nuxt />
+    <nuxt class="container mx-auto mt-10" />
   </div>
 </template>
 
