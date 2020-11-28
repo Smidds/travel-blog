@@ -135,7 +135,7 @@ function getDynamicPaths(cwdPath) {
 
   console.log('Getting dynamic paths for "journal_entries/*.json"')
   const journalEntriesPaths = glob
-    .sync('journal_entries/*.json', { cwd: cwdPath })
+    .sync('journal_entries/*.json', { cwd: cwdPath, absolute: true })
     .map(filepath => {
       return {
         slug: path.basename(filepath, '.json'),
@@ -143,7 +143,7 @@ function getDynamicPaths(cwdPath) {
       }
     })
     .map(journalEntry => {
-      return `/${journalEntry.adventure}/${journalEntry.slug}`
+      return `/${JSON.parse(journalEntry.adventure).slug}/${journalEntry.slug}`
     })
 
   const routes = [...adventuresPaths, ...journalEntriesPaths]
