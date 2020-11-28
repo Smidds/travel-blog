@@ -21,11 +21,11 @@ export const mutations = {
     state.journalEntries = journalEntries
       .sort((entryA, entryB) => new Date(entryA.date) - new Date(entryB.date))
       .reduce((acc, currEntry) => {
-        const currEntriesForAdventure = acc[currEntry.adventure] || []
+        const currEntriesForAdventure = acc[currEntry.adventure.slug] || []
         currEntriesForAdventure.push(currEntry)
         return {
           ...acc,
-          [currEntry.adventure]: currEntriesForAdventure
+          [currEntry.adventure.slug]: currEntriesForAdventure
         }
       }, {})
   }
