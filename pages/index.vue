@@ -44,7 +44,6 @@ export default {
   },
   methods: {
     openAdventure({ slug }) {
-      alert('Trying')
       this.$router.push({ name: 'adventure', params: { adventure: slug } })
     },
   },
