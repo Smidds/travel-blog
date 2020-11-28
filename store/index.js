@@ -1,12 +1,17 @@
-import { SET_ADVENTURES } from './mutations.type'
+import { SET_ADVENTURES, SET_JOURNAL_ENTRIES } from './mutations.type'
 
 export const state = () => ({
-  adventures: []
+  adventures: [],
+  journalEntries: []
 })
 
 export const mutations = {
   [SET_ADVENTURES](state, list) {
     state.adventures = list
+  },
+
+  [SET_JOURNAL_ENTRIES](state, list) {
+    state.journalEntries = list
   }
 }
 
@@ -20,8 +25,9 @@ export const actions = {
   },
   async nuxtServerInit({ commit }) {
     // Adventure collection type
-    // let adventureFiles = await require.context('~/assets/content/adventures/', true, /\.json$/)
-    // await commit(SET_ADVENTURES, actions.getPosts(adventureFiles))
+    let adventureFiles = await require.context('~/assets/content/adventures/', true, /\.json$/)
+    await commit(SET_ADVENTURES, actions.getPosts(adventureFiles))
+
     // ? When adding/changing NetlifyCMS collection types, make sure to:
     // ? 1. Add/rename exact slugs here
     // ? 2. Add/rename the MUTATION_TYPE names in `./mutations.type.js`

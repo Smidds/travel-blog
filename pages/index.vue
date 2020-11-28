@@ -15,7 +15,7 @@
       <topic-card
         v-for="(adventure, index) in adventures"
         :key="index"
-        :cover-photo="adventure.cover_photo"
+        :cover-photo="adventure.cover"
         :title="adventure.title"
         :description="adventure.description"
         :slug="adventure.title"
@@ -37,8 +37,10 @@ export default {
   components: {
     TopicCard,
   },
-  data() {
-    return { adventures: [] }
+  async asyncData({ store }) {
+    return {
+      adventures: store.state.adventures,
+    }
   },
   methods: {
     openAdventure() {
