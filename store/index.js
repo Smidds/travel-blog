@@ -21,11 +21,12 @@ export const mutations = {
     state.journalEntries = journalEntries
       .sort((entryA, entryB) => new Date(entryA.date) - new Date(entryB.date))
       .reduce((acc, currEntry) => {
-        const currEntriesForAdventure = acc[currEntry.adventure.slug] || []
-        currEntriesForAdventure.push(currEntry)
+        const currEntryAdventure = JSON.parse(currEntry.adventure)
+        const currEntriesForAdventure = acc[currEntryAdventure.slug] || []
+        currEntriesForAdventure.push({ ...currEntry, adventure: currEntryAdventure })
         return {
           ...acc,
-          [currEntry.adventure.slug]: currEntriesForAdventure
+          [currEntryAdventure.slug]: currEntriesForAdventure
         }
       }, {})
   }
