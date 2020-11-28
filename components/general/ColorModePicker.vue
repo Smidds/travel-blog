@@ -1,7 +1,14 @@
 <template>
-  <div class="fixed bottom-0 left-0 m-3">
-    <component :is="`icon-${color}`" class="icon" @click="changeColorMode" title="Toggle background color" />
-  </div>
+  <button class="fixed bottom-0 left-0 m-3" @click="changeColorMode">
+    <component
+      :is="`icon-${color}`"
+      class="icon"
+      title="Toggle background color"
+      v-tooltip
+      position="right middle"
+      :content="pickerTooltip"
+    />
+  </button>
 </template>
 
 <script>
@@ -15,11 +22,11 @@ export default {
   components: {
     IconSystem,
     IconLight,
-    IconDark
+    IconDark,
   },
   data() {
     return {
-      color: COLOR_MODE_FALLBACK
+      color: COLOR_MODE_FALLBACK,
     }
   },
   watch: {
@@ -34,8 +41,21 @@ export default {
         } else {
           this.color = COLOR_MODE_FALLBACK
         }
+      },
+    },
+  },
+  computed: {
+    pickerTooltip() {
+      switch (this.color) {
+        case 'light':
+          return 'Change to dark mode'
+        case 'dark':
+          return 'Change to light mode'
+
+        default:
+          return 'Change to light mode'
       }
-    }
+    },
   },
   methods: {
     changeColorMode() {
@@ -52,8 +72,8 @@ export default {
         default:
           return (this.$colorMode.preference = COLOR_MODE_FALLBACK)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

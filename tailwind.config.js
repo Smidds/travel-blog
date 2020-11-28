@@ -10,6 +10,11 @@ module.exports = {
   theme: {
     darkSelector: '.dark-mode',
     extend: {
+      fontSize: {
+        '7xl': '5rem',
+        '8xl': '6rem',
+        '9xl': '7rem'
+      },
       fontFamily: {
         sans: ['Hind Siliguri', ...defaultTheme.fontFamily.sans],
         mono: [...defaultTheme.fontFamily.mono]
@@ -25,7 +30,7 @@ module.exports = {
           600: '#2F51DA',
           700: '#2547D0',
           800: '#2241BF',
-          900: '#1F38BAD'
+          900: '#1F3BAD'
         },
         accent: {
           100: '#00F500',
@@ -53,7 +58,8 @@ module.exports = {
   variants: {
     backgroundColor: ['dark', 'dark-hover', 'dark-group-hover'],
     borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
-    textColor: ['dark', 'dark-hover', 'dark-active']
+    textColor: ['dark', 'dark-hover', 'dark-active'],
+    boxShadow: ['focus-within', 'hover']
   },
   plugins: [require('tailwindcss-dark-mode')()],
   purge: {
