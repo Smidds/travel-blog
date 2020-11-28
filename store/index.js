@@ -1,12 +1,33 @@
-import { SET_ADVENTURES } from './mutations.type'
+import { SET_ADVENTURES, SET_JOURNAL_ENTRIES } from './mutations.type'
 
 export const state = () => ({
-  adventures: []
+  adventures: [],
+  journalEntries: []
 })
 
 export const mutations = {
-  [SET_ADVENTURES](state, list) {
-    state.adventures = list
+  [SET_ADVENTURES](state, adventures) {
+    state.adventures = adventures.map(adventure => ({
+      ...adventure,
+      updatedDate: new Date(state.journalEntries[adventure.slug] ? state.journalEntries[adventure.slug][0] : null),
+      dates: {
+        start: new Date(adventure.dates.start),
+        end: new Date(adventure.dates.end)
+      }
+    }))
+  },
+
+  [SET_JOURNAL_ENTRIES](state, journalEntries) {
+    state.journalEntries = journalEntries
+      .sort((entryA, entryB) => new Date(entryA.date) - new Date(entryB.date))
+      .reduce((acc, currEntry) => {
+        const currEntriesForAdventure = acc[currEntry.adventure] || []
+        currEntriesForAdventure.push(currEntry)
+        return {
+          ...acc,
+          [currEntry.adventure]: currEntriesForAdventure
+        }
+      }, {})
   }
 }
 
@@ -18,14 +39,14 @@ export const actions = {
       return res
     })
   },
+
   async nuxtServerInit({ commit }) {
+    // Journal Entries collection type
+    let journalEntriesFiles = await require.context('~/assets/content/journal_entries/', true, /\.json$/)
+    await commit(SET_JOURNAL_ENTRIES, actions.getPosts(journalEntriesFiles))
+
     // Adventure collection type
-    // let adventureFiles = await require.context('~/assets/content/adventures/', true, /\.json$/)
-    // await commit(SET_ADVENTURES, actions.getPosts(adventureFiles))
-    // ? When adding/changing NetlifyCMS collection types, make sure to:
-    // ? 1. Add/rename exact slugs here
-    // ? 2. Add/rename the MUTATION_TYPE names in `./mutations.type.js`
-    // ? 3. Add/rename `pages/YOUR_SLUG_HERE` and use the Vuex store like the included examples
-    // ? If you are adding, add a state, mutation and commit (like above) for it too
+    let adventureFiles = await require.context('~/assets/content/adventures/', true, /\.json$/)
+    await commit(SET_ADVENTURES, actions.getPosts(adventureFiles))
   }
 }

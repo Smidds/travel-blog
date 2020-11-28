@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div class="w-full bg">
     <Header />
+    <nuxt class="container mx-auto mt-10" />
     <ColorModePicker />
-    <nuxt />
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import ColorModePicker from '~/components/general/ColorModePicker.vue'
 export default {
   components: {
     Header,
-    ColorModePicker
-  }
+    ColorModePicker,
+  },
 }
 </script>

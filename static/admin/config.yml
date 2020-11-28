@@ -42,7 +42,7 @@ collections:
   - label: 'Journal Entries'
     label_singular: 'Journal Entry'
     name: 'journal_entries'
-    folder: 'assets/content/journal_entries/{{adventure.slug}}'
+    folder: 'assets/content/journal_entries'
     create: true
     format: 'json'
     slug: '{{slug}}'

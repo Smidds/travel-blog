@@ -10,34 +10,39 @@ module.exports = {
   theme: {
     darkSelector: '.dark-mode',
     extend: {
+      fontSize: {
+        '7xl': '5rem',
+        '8xl': '6rem',
+        '9xl': '7rem'
+      },
       fontFamily: {
         sans: ['Hind Siliguri', ...defaultTheme.fontFamily.sans],
         mono: [...defaultTheme.fontFamily.mono]
       },
       colors: {
         primary: {
-          100: '#ECEFF5',
-          200: '#CBD2E1',
-          300: '#ABB6CD',
-          400: '#8C9AB7',
-          500: '#6F7FA0',
-          default: '#526488',
-          600: '#3E4F70',
-          700: '#2C3A57',
-          800: '#1C263B',
-          900: '#0D131E'
+          100: '#97A8ED',
+          200: '#869AEA',
+          300: '#748BE7',
+          400: '#637DE3',
+          500: '#526EE0',
+          default: '#3455DB',
+          600: '#2F51DA',
+          700: '#2547D0',
+          800: '#2241BF',
+          900: '#1F3BAD'
         },
         accent: {
-          100: '#F9E9EA',
-          200: '#EEC3C6',
-          300: '#E09FA4',
-          400: '#CF7D83',
-          500: '#BD5D65',
-          default: '#A84048',
-          600: '#8D2D34',
-          700: '#6E1D23',
-          800: '#4D1015',
-          900: '#280709'
+          100: '#00F500',
+          200: '#00E000',
+          300: '#00CC00',
+          400: '#00B800',
+          500: '#00A300',
+          default: '#00800',
+          600: '#007A00',
+          700: '#006600',
+          800: '#005200',
+          900: '#003D00'
         }
       },
       opacity: {
@@ -53,7 +58,8 @@ module.exports = {
   variants: {
     backgroundColor: ['dark', 'dark-hover', 'dark-group-hover'],
     borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
-    textColor: ['dark', 'dark-hover', 'dark-active']
+    textColor: ['dark', 'dark-hover', 'dark-active'],
+    boxShadow: ['focus-within', 'hover']
   },
   plugins: [require('tailwindcss-dark-mode')()],
   purge: {
