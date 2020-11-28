@@ -43,8 +43,9 @@ export default {
     }
   },
   methods: {
-    openAdventure() {
-      alert('Here we go!')
+    openAdventure({ slug }) {
+      alert('Trying')
+      this.$router.push({ name: 'adventure', params: { adventure: slug } })
     },
   },
 }
