@@ -19,6 +19,7 @@
         :title="adventure.title"
         :description="adventure.description"
         :slug="adventure.title"
+        button-text="See Journal Entries"
         @click="openAdventure(adventure)"
       />
     </div>
