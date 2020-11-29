@@ -53,7 +53,11 @@ module.exports = {
     boxShadow: {
       ...defaultTheme.boxShadow,
       outline: '0 0 0 3px rgba(0, 86, 87,0.5)'
-    }
+    },
+    backgroundColor: theme => ({
+      ...theme('colors'),
+      secondary: 'var(--bg-secondary)'
+    })
   },
   variants: {
     backgroundColor: ['dark', 'dark-hover', 'dark-group-hover'],

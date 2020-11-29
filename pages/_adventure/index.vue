@@ -1,6 +1,6 @@
 <template>
   <div class="main flex flex-col items-start justify-center">
-    <div class="w-full text-6xl font-bold text-primary-700 mb-5 text-center">
+    <div class="w-full text-6xl font-bold text-primary-700 dark:text-primary-300 mb-5 text-center">
       {{ adventure.title }}
     </div>
     <div class="h-64 w-full relative shadow-2xl rounded-3xl overflow-hidden">
