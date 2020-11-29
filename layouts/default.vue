@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg">
+  <div class="w-full min-h-full bg bg-theme">
     <Header />
     <nuxt class="container mx-auto mt-10" />
     <ColorModePicker />
@@ -17,3 +17,12 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" scoped>
+@import '../assets/css/backgrounds/_dark.pcss';
+@import '../assets/css/backgrounds/_light.pcss';
+
+.bg-theme {
+  color: #3c4d91;
+}
+</style>
