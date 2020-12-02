@@ -1,0 +1,29 @@
+.post-content {
+  * {
+    @apply text-black;
+  }
+  & h1 {
+    @apply text-4xl text-black font-bold mb-5 mt-8;
+
+    & h1:first-of-type {
+      @apply mt-0;
+    }
+  }
+  & h2 {
+    @apply text-3xl text-black font-bold;
+  }
+  & h3 {
+    @apply text-2xl text-black font-bold;
+  }
+  & h4 {
+    @apply text-xl text-black font-bold;
+  }
+
+  & div, & p {
+    @apply text-lg mb-5 overflow-hidden;
+  }
+
+  & img {
+    @apply rounded-md my-6 object-cover max-w-sm w-full h-72 mx-auto;
+  }
+}

@@ -15,6 +15,9 @@ module.exports = {
         '8xl': '6rem',
         '9xl': '7rem'
       },
+      height: {
+        '72': '17rem'
+      },
       fontFamily: {
         sans: ['Hind Siliguri', ...defaultTheme.fontFamily.sans],
         mono: [...defaultTheme.fontFamily.mono]
