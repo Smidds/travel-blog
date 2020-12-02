@@ -60,7 +60,7 @@ collections:
         display_fields: ['title']
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Cover Image', name: 'cover', widget: 'image', allow_multiple: false }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Body', name: 'body', widget: 'markdown', buttons: ["bold", "italic", "link", "heading-one", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"], editor_components: ['image'] }
   - name: 'adventures'
     label: 'Adventures'
     label_singular: 'Adventure'
