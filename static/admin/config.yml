@@ -6,6 +6,8 @@ backend:
   name: git-gateway
   branch: master
 
+local_backend: true
+
 media_folder: static/img
 public_folder: /img
 media_library:
@@ -59,8 +61,9 @@ collections:
         search_fields: ['title', 'description', 'content']
         display_fields: ['title']
       - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Album Link', name: 'album', widget: 'string', required: false }
       - { label: 'Cover Image', name: 'cover', widget: 'image', allow_multiple: false }
-      - { label: 'Body', name: 'body', widget: 'markdown', buttons: ["bold", "italic", "link", "heading-one", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"], editor_components: ['image'] }
+      - { label: 'Body', name: 'body', widget: 'markdown', buttons: ["bold", "italic", "link", "heading-one", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"], editor_components: ['image', 'youtube', 'caption-image'] }
   - name: 'adventures'
     label: 'Adventures'
     label_singular: 'Adventure'
