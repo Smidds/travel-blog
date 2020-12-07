@@ -1,17 +1,33 @@
 <template>
-  <div class="main flex flex-col items-start justify-center">
-    <div class="w-full rounded-3xl bg-secondary">
-      <div class="h-64 w-full relative shadow-lg rounded-3xl overflow-hidden">
+  <div class="main flex flex-col items-start justify-center post-content">
+    <div class="w-full rounded-3xl bg-secondary border-primary-100 dark:border-primary-400 border-2 border-solid">
+      <div class="h-64 w-full relative shadow-lg rounded-2xl overflow-hidden">
         <img :src="entry.cover" class="h-full w-full object-cover" />
       </div>
-      <div class="p-8">
-        <div class="w-full text-6xl font-bold text-primary-700 dark:text-primary-300 mb-3 text-center">
+      <div class="inner-details">
+        <div class="entry-title">
           {{ entry.title }}
         </div>
-        <div class="text-lg text-center mb-6">
+        <div class="date-posted">
           Posted: <em>{{ datePosted }}</em>
         </div>
-        <div class="post-content mt-20" v-html="$md.render(entry.body)"></div>
+        <button class="btn photo-album" v-if="entry.album" @click="openAlbum">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="h-6 mr-2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+            /></svg
+          >View Photo Album
+        </button>
+        <div class="inner-content" v-html="$md.render(entry.body)"></div>
       </div>
     </div>
   </div>
@@ -37,8 +53,10 @@ export default {
       entry,
     }
   },
+  methods: {
+    openAlbum() {
+      window.open(this.entry.album, '_blank')
+    },
+  },
 }
 </script>
-
-<style lang="postcss" scoped>
-</style>

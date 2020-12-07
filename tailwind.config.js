@@ -65,6 +65,7 @@ module.exports = {
   variants: {
     backgroundColor: ['dark', 'dark-hover', 'dark-group-hover'],
     borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
+    borderWidth: ['dark', 'dark-focus', 'dark-focus-within'],
     textColor: ['dark', 'dark-hover', 'dark-active'],
     boxShadow: ['focus-within', 'hover']
   },
