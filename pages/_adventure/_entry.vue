@@ -1,11 +1,11 @@
 <template>
   <div class="main flex flex-col items-start justify-center post-content">
     <div class="w-full rounded-3xl bg-secondary border-primary-100 dark:border-primary-400 border-2 border-solid">
-      <div class="h-100 w-full relative shadow-lg rounded-2xl overflow-hidden">
+      <div class="h-72 sm:h-88 md:h-100 w-full relative shadow-lg rounded-2xl overflow-hidden">
         <img :src="entry.cover" class="h-full w-full object-cover" />
       </div>
       <div class="p-3 sm:p-6 md:p-8 flex flex-col">
-        <div class="entry-title">
+        <div class="w-full text-5xl sm:text-6xl font-bold text-primary-700 mb-3 text-center">
           {{ entry.title }}
         </div>
         <div class="date-posted">
