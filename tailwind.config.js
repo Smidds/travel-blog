@@ -15,6 +15,9 @@ module.exports = {
         '8xl': '6rem',
         '9xl': '7rem'
       },
+      height: {
+        '72': '17rem'
+      },
       fontFamily: {
         sans: ['Hind Siliguri', ...defaultTheme.fontFamily.sans],
         mono: [...defaultTheme.fontFamily.mono]
@@ -62,6 +65,7 @@ module.exports = {
   variants: {
     backgroundColor: ['dark', 'dark-hover', 'dark-group-hover'],
     borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
+    borderWidth: ['dark', 'dark-focus', 'dark-focus-within'],
     textColor: ['dark', 'dark-hover', 'dark-active'],
     boxShadow: ['focus-within', 'hover']
   },

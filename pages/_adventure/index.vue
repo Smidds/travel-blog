@@ -34,33 +34,20 @@ export default {
     }
   },
   async asyncData({ params, store }) {
-    // journalEntries: store.state.journalEntries[params.adventure],
     return {
       adventure: store.state.adventures.find((adventure) => adventure.slug === params.adventure),
-      journalEntries: [
-        {
-          date: new Date('2020-11-27T17:19:09.647Z'),
-          title: 'The Adventure Begins',
-          description: "From O'Hare to Bangkok, traveling the world is a long process",
-          body: '# Pre-Departure Preparations\n\n\n\n# First Stop, ORD\n\n# Bangkok Bound',
-          cover: 'https://res.cloudinary.com/dfkk9455p/image/upload/v1606175283/sample.jpg',
-        },
-        {
-          date: new Date('2020-11-27T17:19:09.647Z'),
-          title: 'The Adventure Begins',
-          description: "From O'Hare to Bangkok, traveling the world is a long process",
-          body: '# Pre-Departure Preparations\n\n\n\n# First Stop, ORD\n\n# Bangkok Bound',
-          cover: 'https://res.cloudinary.com/dfkk9455p/image/upload/v1606175283/sample.jpg',
-        },
-        {
-          date: new Date('2020-11-27T17:19:09.647Z'),
-          title: 'The Adventure Begins',
-          description: "From O'Hare to Bangkok, traveling the world is a long process",
-          body: '# Pre-Departure Preparations\n\n\n\n# First Stop, ORD\n\n# Bangkok Bound',
-          cover: 'https://res.cloudinary.com/dfkk9455p/image/upload/v1606175283/sample.jpg',
-        },
-      ],
+      journalEntries: store.state.journalEntries[params.adventure],
     }
+  },
+  methods: {
+    openEntry({ slug }) {
+      this.$router.push({
+        name: 'adventure-entry',
+        params: {
+          entry: slug,
+        },
+      })
+    },
   },
 }
 </script>

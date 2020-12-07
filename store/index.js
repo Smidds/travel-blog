@@ -23,7 +23,12 @@ export const mutations = {
       .reduce((acc, currEntry) => {
         const currEntryAdventure = JSON.parse(currEntry.adventure)
         const currEntriesForAdventure = acc[currEntryAdventure.slug] || []
-        currEntriesForAdventure.push({ ...currEntry, adventure: currEntryAdventure })
+        currEntriesForAdventure.push({
+          ...currEntry,
+          date: new Date(currEntry.date),
+          adventure: currEntryAdventure
+        })
+
         return {
           ...acc,
           [currEntryAdventure.slug]: currEntriesForAdventure
