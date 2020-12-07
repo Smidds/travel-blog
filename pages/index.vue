@@ -6,7 +6,7 @@
         class="h-full w-full object-cover"
       />
       <div
-        class="title-text bg-white bg-opacity-50 border-t-2 border-b-2 border-solid border-gray-300 block w-full absolute text-7xl font-bold text-white stroke-1 shadow-2xl text-center"
+        class="title-text bg-white bg-opacity-50 border-t-2 border-b-2 border-solid border-gray-300 block w-full absolute text-5xl sm:text-7xl font-bold text-white stroke-1 shadow-2xl text-center"
       >
         All Adventures
       </div>

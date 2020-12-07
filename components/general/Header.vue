@@ -3,12 +3,13 @@
     <div class="container relative flex w-full top-0 inset-x-0 p-3 mx-auto justify-center items-center h-16">
       <button
         class="text-lg text-primary-700 absolute top-o left-0 font-semibold ml-4 dark:text-primary-100 dark-hover:text-white flex items-center"
-        @click="goHome"
+        @click="goBack"
         v-show="!isHomePage"
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg
-        >All Adventures
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        <span class="hidden sm:block">Back</span>
       </button>
       <nuxt-link class="text-2xl h-8 mt-3 text-black dark:text-white left-to-right-underline flex items-start" to="/"
         ><span class="text-base mt-1 mr-1">✈</span> Isaac's Travel Blog</nuxt-link
@@ -26,8 +27,8 @@ export default {
     },
   },
   methods: {
-    goHome() {
-      this.$router.push({ path: '/' })
+    goBack() {
+      this.$router.go(-1)
     },
   },
 }

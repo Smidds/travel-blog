@@ -1,7 +1,7 @@
 <template>
   <div class="w-full min-h-full bg bg-theme">
     <Header />
-    <nuxt class="container mx-auto mt-10 pb-10" />
+    <nuxt class="container mx-auto p-4 md:p-8 lg:p-10" />
     <ColorModePicker />
   </div>
 </template>

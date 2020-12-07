@@ -16,7 +16,11 @@ module.exports = {
         '9xl': '7rem'
       },
       height: {
-        '72': '17rem'
+        '72': '18rem',
+        '80': '20rem',
+        '88': '22rem',
+        '96': '24rem',
+        '100': '25rem'
       },
       fontFamily: {
         sans: ['Hind Siliguri', ...defaultTheme.fontFamily.sans],
