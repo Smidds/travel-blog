@@ -27,6 +27,11 @@ export default {
   components: {
     TopicCard,
   },
+  head() {
+    return {
+      title: this.adventure.title,
+    }
+  },
   data() {
     return {
       adventure: {},
