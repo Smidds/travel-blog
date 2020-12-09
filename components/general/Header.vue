@@ -11,16 +11,22 @@
         </svg>
         <span class="hidden sm:block">Back</span>
       </button>
-      <nuxt-link class="text-2xl h-8 mt-3 text-black dark:text-white left-to-right-underline flex items-start" to="/"
-        ><span class="text-base mt-1 mr-1">✈</span> Isaac's Travel Blog</nuxt-link
-      >
+      <nuxt-link class="text-2xl h-8 text-black dark:text-white left-to-right-underline flex items-center pb-2 mt-2" to="/">
+        <passport-icon />
+        Isaac's Travel Blog
+      </nuxt-link>
     </div>
   </nav>
 </template>
 
 <script>
+import PassportIcon from "@/components/icons/passport.svg?inline";
+
 export default {
   name: 'Header',
+  components: {
+    PassportIcon
+  },
   computed: {
     isHomePage() {
       return this.$route.name === 'index'
