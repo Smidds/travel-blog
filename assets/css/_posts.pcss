@@ -33,6 +33,34 @@
       @apply text-lg mb-5 overflow-hidden leading-8 text-black;
     }
 
+    & ol {
+      @apply list-decimal;
+    }
+
+    & ol, & ul {
+      @apply mb-5;
+
+      & li {
+        @apply mr-10;
+
+        @media only screen and (max-width: theme('screens.sm')) {
+          @apply mr-8;
+        }
+      }
+    }
+
+    & li {
+      @apply text-lg leading-8 mb-2 text-black ml-10;
+
+      @media only screen and (max-width: theme('screens.sm')) {
+        @apply ml-8;
+      }
+
+      &::marker {
+        @apply font-bold;
+      }
+    }
+
     & img {
       @apply rounded-md my-6 object-cover max-w-xl w-full mx-auto;
     }
@@ -51,7 +79,7 @@
 
     & .video-container {
       padding-top: 45.25%;
-      @apply mx-auto max-w-xl w-full relative;
+      @apply mx-auto max-w-xl w-full relative mt-10 mb-10;
       & iframe {
         @apply w-full h-full absolute top-0 left-0;
       }
@@ -73,7 +101,7 @@
       @apply text-gray-100;
     }
 
-    & div, & p {
+    & div, & p, & li {
       @apply text-gray-200;
     }
   }

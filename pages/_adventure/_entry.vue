@@ -37,6 +37,18 @@
 import { format as formatDate } from 'date-fns'
 
 export default {
+  head() {
+    return {
+      title: this.entry.title,
+      meta: [
+        { hid: 'og:image', name: 'og:image', content: this.entry.cover },
+        { hid: 'og:image:type', name: 'og:image:type', content: this.entry.cover.match(/([^.]+)$/)[1] },
+        { hid: 'description', name: 'description', content: this.entry.description },
+        { hid: 'og:description', name: 'og:description', content: this.entry.description },
+        { hid: 'og:url', name: 'og:url', content: this.$route.fullPath }
+      ]
+    }
+  },
   data() {
     return {
       entry: {},

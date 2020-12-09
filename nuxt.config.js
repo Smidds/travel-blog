@@ -19,6 +19,7 @@ export default {
    */
   head: {
     title: SITE_INFO.sitename || process.env.npm_package_name || '',
+    titleTemplate: `%s - ${SITE_INFO.sitename}`,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -122,8 +123,8 @@ export default {
     meta: {
       name: SITE_INFO.sitename || process.env.npm_package_name || '',
       lang: process.env.lang,
-      ogHost: process.env.URL
-      // ogImage: '/ogp.jpg'
+      ogHost: process.env.URL,
+      ogImage: '/ogp.jpg'
     }
   }
 }
