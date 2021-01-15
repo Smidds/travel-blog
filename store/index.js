@@ -19,7 +19,7 @@ export const mutations = {
 
   [SET_JOURNAL_ENTRIES](state, journalEntries) {
     state.journalEntries = journalEntries
-      .sort((entryA, entryB) => new Date(entryA.date) - new Date(entryB.date))
+      .sort((entryA, entryB) => new Date(entryB.date) - new Date(entryA.date))
       .reduce((acc, currEntry) => {
         const currEntryAdventure = JSON.parse(currEntry.adventure)
         const currEntriesForAdventure = acc[currEntryAdventure.slug] || []

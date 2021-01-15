@@ -14,6 +14,7 @@
         :title="entry.title"
         :description="entry.description"
         :slug="entry.title"
+        :date="entry.date"
         button-text="Open the Entry"
         @click="openEntry(entry)"
       />
