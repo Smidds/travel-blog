@@ -8,7 +8,7 @@
       <div>
         <div class="mb-5">
           <h3 class="text-2xl mt-2 text-black dark:text-gray-200 flex-grow">{{ title }}</h3>
-          <div class="mt-2 text-gray-600 dark:text-primary-100">Posted: {{ datePosted }}</div>
+          <div v-if="datePosted" class="mt-2 text-gray-600 dark:text-primary-100">Posted: {{ datePosted }}</div>
         </div>
         <p class="mt-5 dark:text-gray-200">
           {{ description }}
@@ -29,11 +29,11 @@ export default {
     description: { type: String, required: true },
     slug: { type: String, required: true },
     buttonText: { type: String, required: true },
-    date: { type: Date, required: true }
+    date: { type: Date, required: false }
   },
   computed: {
     datePosted() {
-      return formatDate(new Date(this.date), 'MMMM dd, yyyy')
+      return this.date ? formatDate(this.date, 'MMMM dd, yyyy') : null
     },
   }
 }

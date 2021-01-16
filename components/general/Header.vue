@@ -4,7 +4,7 @@
       <button
         class="text-lg text-primary-700 absolute top-o left-0 font-semibold ml-4 dark:text-primary-100 dark-hover:text-white flex items-center"
         @click="goBack"
-        v-show="!isHomePage"
+        v-if="!isHomePage"
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
